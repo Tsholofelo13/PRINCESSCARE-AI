@@ -9,8 +9,8 @@ const Dashboard = () => {
   const features = [
     { title: "🛍️ Products", path: "/products" },
     { title: "❤️ Donate", path: "/donate" },
-    { title: "📅 Track Period", path: "/track-period" },
-    { title: "📘 Learn", path: "/menstrual-health" },
+    { title: "📅 Track Period", path: "/aicyclecheck" },
+    { title: "📘 Learn", path: "/chatbot" },
     { title: "⚙️ Settings", path: "/settings" },
   ];
 

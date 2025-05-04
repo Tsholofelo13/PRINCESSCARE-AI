@@ -687,3 +687,366 @@ form {
   margin: 20px 0;
   border-radius: 8px;
 }
+
+/* Settings Menu */
+.settings-menu {
+  width: 250px;
+  padding: 20px;
+  background-color: var(--secondary-color);
+  border-right: 2px solid var(--primary-color);
+}
+
+.settings-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.settings-menu li {
+  padding: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  border-bottom: 1px solid var(--primary-color);
+  transition: background-color 0.3s;
+}
+
+.settings-menu li:hover {
+  background-color: var(--primary-color);
+}
+
+.settings-menu li.active {
+  background-color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Settings Section */
+.settings-section {
+  display: none;
+  padding: 20px;
+}
+
+.settings-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+/* Account Settings Section */
+.update-photo {
+  margin-bottom: 20px;
+}
+
+.update-photo label {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.update-photo input[type="file"] {
+  margin-top: 10px;
+}
+
+.update-information {
+  margin-top: 30px;
+}
+
+.update-information form {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-information label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: var(--primary-color);
+}
+
+.update-information input[type="text"],
+.update-information input[type="email"] {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+.update-information button {
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+/* Notifications Section */
+.notification-options {
+  list-style-type: none;
+  padding: 0;
+}
+
+.notification-options li {
+  cursor: pointer;
+  padding: 15px;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.notification-options li:hover {
+  background-color: var(--primary-color);
+}
+
+.notification-options .hidden-panel {
+  display: none;
+  padding-left: 20px;
+}
+
+.notification-options .preference-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.notification-options .preference-item label {
+  font-weight: normal;
+  color: var(--primary-color);
+}
+
+/* Accessibility Section */
+.accessibility-options {
+  list-style-type: none;
+  padding: 0;
+}
+
+.accessibility-options li {
+  cursor: pointer;
+  padding: 15px;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.accessibility-options li:hover {
+  background-color: var(--primary-color);
+}
+
+.accessibility-options .hidden-panel {
+  display: none;
+  padding-left: 20px;
+}
+
+.accessibility-options .preference-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.accessibility-options .preference-item label {
+  font-weight: normal;
+  color: var(--primary-color);
+}
+
+/* Display Section */
+.display-options {
+  list-style-type: none;
+  padding: 0;
+}
+
+.display-options li {
+  cursor: pointer;
+  padding: 15px;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.display-options li:hover {
+  background-color: var(--primary-color);
+}
+
+.display-options .hidden-panel {
+  display: none;
+  padding-left: 20px;
+}
+
+.display-options .preference-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.display-options .preference-item label {
+  font-weight: normal;
+  color: var(--primary-color);
+}
+
+/* Language Section */
+.languages-options {
+  list-style-type: none;
+  padding: 0;
+}
+
+.languages-options li {
+  cursor: pointer;
+  padding: 15px;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.languages-options li:hover {
+  background-color: var(--primary-color);
+}
+
+.languages-options .hidden-panel {
+  display: none;
+  padding-left: 20px;
+}
+
+.languages-options .preference-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.languages-options .preference-item label {
+  font-weight: normal;
+  color: var(--primary-color);
+}
+
+/* Password & Security Section */
+.security-options {
+  list-style-type: none;
+  padding: 0;
+}
+
+.security-options li {
+  cursor: pointer;
+  padding: 15px;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.security-options li:hover {
+  background-color: var(--primary-color);
+}
+
+.security-options .hidden-panel {
+  display: none;
+  padding-left: 20px;
+}
+
+.security-options .preference-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.security-options .preference-item label {
+  font-weight: normal;
+  color: var(--primary-color);
+}
+
+/* Toggle Switch Styling */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-switch span {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--primary-color);
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.toggle-switch input:checked + span {
+  background-color: var(--secondary-color);
+}
+
+.toggle-switch span:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+.toggle-switch input:checked + span:before {
+  transform: translateX(20px);
+}
+
+/* Show section when active */
+.settings-section.active {
+  display: block;
+}
+
+/* Add this CSS to style the chatbot */
+.chatbot-container {
+  width: 800px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+
+  background-color: #f9f9f9;
+}
+
+.chatbox {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  padding: 8px;
+  border-radius: 5px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.message.user {
+  background-color: var(--secondary-color);
+  align-self: flex-end;
+}
+
+.message.ai {
+  background-color: #e0e0e0;
+  align-self: flex-start;
+  margin: 10px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  width: 80%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  width: 15%;
+  padding: 8px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+}

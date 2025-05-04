@@ -21,6 +21,9 @@ const Navigation = () => {
           <li>
             <Link to="/donation">Donation</Link>
           </li>
+          <li>
+            <Link to="/chatbot">AI Chatbot</Link>
+          </li>
         </ul>
       </nav>
     </header>

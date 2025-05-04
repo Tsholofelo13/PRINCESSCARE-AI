@@ -8,6 +8,8 @@ import Dashboard from "./pages/Dashboard";
 import AIRecommendations from "./components/AiCycleCheck";
 import Donation from "./pages/Donation";
 import Products from "./pages/Products";
+import SettingsPage from "./pages/Settings";
+import ChatBot from "./pages/ChatBot";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/aicyclecheck" element={<AIRecommendations />} />
           <Route path="/donation" element={<Donation />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/chatbot" element={<ChatBot />} />
         </Routes>
       </BrowserRouter>
     </div>
