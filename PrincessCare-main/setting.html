@@ -1,0 +1,1032 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Princess Care</title>
+    <style>
+         :root {
+            --primary-color: #ff69b4;
+            --secondary-color: #f8b3d2;
+            --text-color: #333;
+            --background-color: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PT Sans", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: horizontal;
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-left: 20px;
+            font-size:30px;
+        }
+
+        .active{
+            color:#ff69b4;
+        }
+        nav ul li a {
+            color: gray;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav .search-bar {
+            margin-top: 10px;
+        }
+
+        .search-bar input {
+            width: 500px; 
+  height: 52px; 
+  padding-left: 52px; 
+  padding-right: 20px; 
+  font-size: 18px; 
+  line-height: 28px; 
+  font-weight: 400; 
+  background: #F3F4F6FF; /* neutral-200 */
+  border-radius: 8px; /* border-xl */
+  border-width: 0px; 
+  outline: none; 
+        }
+
+
+        main {
+            display: flex;
+            margin: 20px;
+        }
+
+        .settings-menu {
+            width: 300px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .settings-menu ul {
+            list-style: none;
+        }
+
+        .settings-menu ul li {
+            margin-bottom: 15px;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            background-color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .settings-menu ul li:hover,
+        .settings-menu ul li.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .settings-section {
+            flex: 1;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .update-photo, .update-information {
+            margin-bottom: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #e057a1;
+        }
+
+        .notification-options li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .arrow-icon {
+            width: 25px;
+            height: 25px;
+        }
+
+        .info-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head> 
+
+<body>
+    <header>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="menstrual-health.html">Learn</a></li>
+            <li><a href="track-period.html">Track My Period</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="setting.html" class="active">Settings</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="settings-menu">
+            <ul>
+                <li onclick="showSection('account-settings')" class="active">Account Settings</li>
+                <li onclick="showSection('notifications')">Notifications</li>
+                <li onclick="showSection('accessibility')">Accessibility, Display, & Language</li>
+                <li onclick="showSection('password-security')">Password & Security</li>
+            </ul>
+        </div>
+        
+        <div class="settings-section" id="account-settings">
+            <h2>Account Settings</h2>
+            <div class="update-photo">
+                <label for="upload-photo">Upload a New Photo</label>
+                <input type="file" id="upload-photo">
+                <button>Update</button>
+            </div>
+            <div class="update-information">
+                <form>
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name">
+                    <label for="email-address">Email Address</label>
+                    <input type="email" id="email-address">
+                    <label for="address">Address</label>
+                    <input type="text" id="address">
+                    <label for="city">City</label>
+                    <input type="text" id="city">
+                    <label for="state">State/Province</label>
+                    <input type="text" id="state">
+                    <label for="country">Country</label>
+                    <input type="text" id="country">
+                    <button type="submit">Update Information</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="settings-section" id="notifications" style="display:none">
+            <h2>Notifications</h2>
+            <ul class="notification-options">
+                <li>
+                    <div>
+                        <h4>Filters</h4>
+                        <p>Choose the notifications you'd like to see - and those you don't</p>
+                    </div>
+                    <img src="src/images/Settings arrow.png" alt="Arrow Icon" class="arrow-icon">
+                </li>
+                <li>
+                    <div>
+                        <h4>Preferences</h4>
+                        <p>Select your preferences by notification type</p>
+                    </div>
+                    <img src="src/images/Settings arrow.png" alt="Arrow Icon" class="arrow-icon">
+                </li>
+            </ul>
+        </div>
+
+        <div class="settings-section" id="accessibility" style="display:none">
+            <h2>Accessibility, Display, & Language</h2>
+            <ul class="notification-options">
+                <li>
+                    <div>
+                        <h4>Accessibility</h4>
+                        <p>Manage aspects of your experience such as limiting colour contrast, motion and text-to-voice options</p>
+                    </div>
+                    <img src="src/images/Settings arrow.png" alt="Arrow Icon" class="arrow-icon">
+                </li>
+                <li>
+                    <div>
+                        <h4>Display</h4>
+                        <p>Manage your font size, colour, and background</p>
+                    </div>
+                    <img src="src/images/Settings arrow.png" alt="Arrow Icon" class="arrow-icon">
+                </li>
+                <li>
+                    <div>
+                        <h4>Languages</h4>
+                        <p>Manage which -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<title>Princess Care - Settings</title>
+<style>
+:root {
+--primary-color: #ff69b4;
+--secondary-color: #f8b3d2;
+--text-color: #333;
+--background-color: #fff;
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: "PT Sans", sans-serif;
+font-weight: 400;
+font-style: normal;
+line-height: 1.6;
+color: var(--text-color);
+background-color: var(--background-color);
+}
+
+.container {
+max-width: 800px;
+margin: 0 auto;
+padding: 20px;
+}
+
+header {
+background-color: var(--primary-color);
+color: white;
+text-align: horizontal;
+padding: 1rem;
+}
+
+nav ul {
+list-style: none;
+padding: 0;
+display: flex;
+justify-content: center;
+gap: 1rem;
+}
+
+nav ul li {
+display: inline;
+margin-left: 20px;
+font-size:30px;
+}
+
+.active{
+color:#ff69b4;
+}
+nav ul li a {
+color: gray;
+text-decoration: none;
+font-weight: bold;
+}
+
+nav .search-bar {
+margin-top: 10px;
+}
+
+.search-bar input {
+width: 500px; 
+height: 52px; 
+padding-left: 52px; 
+padding-right: 20px; 
+font-size: 18px; 
+line-height: 28px; 
+font-weight: 400; 
+background: #F3F4F6FF; /* neutral-200 */
+border-radius: 8px; /* border-xl */
+border-width: 0px; 
+outline: none; 
+}
+
+main {
+display: flex;
+margin: 20px;
+}
+
+.settings-menu {
+width: 300px;
+background-color: #f0f0f0;
+padding: 20px;
+border-radius: 8px;
+margin-right: 20px;
+}
+
+.settings-menu ul {
+list-style: none;
+}
+
+.settings-menu ul li {
+margin-bottom: 15px;
+padding: 15px;
+cursor: pointer;
+font-size: 18px;
+background-color: white;
+border-radius: 5px;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.settings-menu ul li:hover,
+.settings-menu ul li.active {
+background-color: var(--secondary-color);
+color: white;
+}
+
+.settings-section {
+flex: 1;
+padding: 20px;
+background-color: white;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+color: var(--primary-color);
+margin-bottom: 1rem;
+}
+
+.update-photo, .update-information {
+margin-bottom: 20px;
+}
+
+form label {
+display: block;
+margin-bottom: 8px;
+font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="file"],
+form input[type="password"] {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+border: 1px solid #ddd;
+border-radius: 4px;
+}
+
+form button {
+background-color: var(--primary-color);
+color: white;
+padding: 12px 24px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 16px;
+transition: background-color 0.3s ease;
+}
+
+form button:hover {
+background-color: #e057a1;
+}
+
+.notification-options li,
+.accessibility-options li,
+.security-options li {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px;
+border-bottom: 1px solid #ddd;
+cursor: pointer;
+}
+
+.notification-options li:hover,
+.accessibility-options li:hover,
+.security-options li:hover {
+background-color: #f5f5f5;
+}
+
+.arrow-icon {
+width: 20px;
+height: 20px;
+}
+
+.info-section {
+background-color: #f9f9f9;
+padding: 20px;
+border-radius: 5px;
+margin-bottom: 20px;
+}
+
+.toggle-switch {
+position: relative;
+display: inline-block;
+width: 60px;
+height: 34px;
+}
+
+.toggle-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: .4s;
+border-radius: 34px;
+}
+
+.slider:before {
+position: absolute;
+content: "";
+height: 26px;
+width: 26px;
+left: 4px;
+bottom: 4px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+
+input:checked + .slider {
+background-color: var(--primary-color);
+}
+
+input:focus + .slider {
+box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+
+select {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+border: 1px solid #ddd;
+border-radius: 4px;
+}
+
+.preference-item {
+padding: 15px;
+border-bottom: 1px solid #eee;
+}
+
+.preference-item h4 {
+margin-bottom: 10px;
+}
+
+.preference-item p {
+color: #666;
+margin-bottom: 10px;
+}
+
+.hidden-panel {
+display: none;
+padding: 15px;
+background-color: #f9f9f9;
+border-radius: 5px;
+margin-top: 10px;
+}
+
+.success-message {
+color: green;
+margin-top: 10px;
+padding: 10px;
+background-color: #e8f5e9;
+border-radius: 4px;
+display: none;
+}
+</style>
+</head> 
+
+<body>
+<header>
+<div class="search-bar">
+<input type="text" placeholder="Search...">
+</div>
+</header>
+
+<nav>
+<ul>
+<!-- <li><a href="index.html">Home</a></li> -->
+<li><a href="products.html">Products</a></li>
+<li><a href="menstrual-health.html">Learn</a></li>
+<li><a href="track-period.html">Track My Period</a></li>
+<li><a href="donate.html">Donate</a></li>
+<!-- <li><a href="setting.html" class="active">Settings</a></li> -->
+</ul>
+</nav>
+
+<main>
+<div class="settings-menu">
+<ul>
+<li data-section="account-settings" class="active">Account Settings</li>
+<li data-section="notifications">Notifications</li>
+<li data-section="accessibility">Accessibility, Display, & Language</li>
+<li data-section="password-security">Password & Security</li>
+</ul>
+</div>
+
+<div class="settings-section" id="account-settings">
+<h2>Account Settings</h2>
+<div class="update-photo">
+<label for="upload-photo">Upload a New Photo</label>
+<input type="file" id="upload-photo" accept="image/*">
+<button id="update-photo-btn">Update</button>
+<div class="success-message" id="photo-success">Photo updated successfully!</div>
+</div>
+<div class="update-information">
+<form id="account-form">
+<label for="full-name">Full Name</label>
+<input type="text" id="full-name" value="Jane Doe">
+<label for="email-address">Email Address</label>
+<input type="email" id="email-address" value="jane.doe@example.com">
+<label for="address">Address</label>
+<input type="text" id="address" value="123 Main St">
+<label for="city">City</label>
+<input type="text" id="city" value="New York">
+<label for="state">State/Province</label>
+<input type="text" id="state" value="NY">
+<label for="country">Country</label>
+<input type="text" id="country" value="USA">
+<button type="submit">Update Information</button>
+<div class="success-message" id="account-success">Information updated successfully!</div>
+</form>
+</div>
+</div>
+
+<div class="settings-section" id="notifications" style="display:none">
+<h2>Notifications</h2>
+<ul class="notification-options">
+<li id="filters-toggle">
+<div>
+<h4>Filters</h4>
+<p>Choose the notifications you'd like to see - and those you don't</p>
+</div>
+<img src="/api/placeholder/20/20" alt="Arrow Icon" class="arrow-icon">
+</li>
+<div class="hidden-panel" id="filters-panel">
+<div class="preference-item">
+<h4>Period Reminders</h4>
+<p>Get reminders before your period is due</p>
+<label class="toggle-switch">
+<input type="checkbox" checked>
+<span class="slider"></span>
+</label>
+</div>
+<div class="preference-item">
+<h4>Product Recommendations</h4>
+<p>Receive personalized product suggestions</p>
+<label class="toggle-switch">
+<input type="checkbox" checked>
+<span class="slider"></span>
+</label>
+</div>
+<div class="preference-item">
+<h4>Educational Content</h4>
+<p>Stay updated with the latest menstrual health information</p>
+<label class="toggle-switch">
+<input type="checkbox" checked>
+<span class="slider"></span>
+</label>
+</div>
+<div class="preference-item">
+<h4>Promotional Offers</h4>
+<p>Receive special offers and discounts</p>
+<label class="toggle-switch">
+<input type="checkbox">
+<span class="slider"></span>
+</label>
+</div>
+<button class="save-preferences">Save Preferences</button>
+<div class="success-message" id="filters-success">Notification filters updated successfully!</div>
+</div>
+
+<li id="preferences-toggle">
+<div>
+<h4>Preferences</h4>
+<p>Select your preferences by notification type</p>
+</div>
+<img src="/api/placeholder/20/20" alt="Arrow Icon" class="arrow-icon">
+</li>
+<div class="hidden-panel" id="preferences-panel">
+<div class="preference-item">
+<h4>Notification Method</h4>
+<p>How would you like to receive notifications?</p>
+<select id="notification-method">
+<option value="email">Email</option>
+<option value="push" selected>Push Notifications</option>
+<option value="both">Both Email and Push</option>
+<option value="none">None</option>
+</select>
+</div>
+<div class="preference-item">
+<h4>Notification Frequency</h4>
+<p>How often would you like to receive notifications?</p>
+<select id="notification-frequency">
+<option value="daily">Daily</option>
+<option value="weekly" selected>Weekly</option>
+<option value="monthly">Monthly</option>
+</select>
+</div>
+<button class="save-preferences">Save Preferences</button>
+<div class="success-message" id="preferences-success">Notification preferences updated successfully!</div>
+</div>
+</ul>
+</div>
+
+<div class="settings-section" id="accessibility" style="display:none">
+<h2>Accessibility, Display, & Language</h2>
+<ul class="accessibility-options">
+<li id="accessibility-toggle">
+<div>
+<h4>Accessibility</h4>
+<p>Manage aspects of your experience such as limiting colour contrast, motion and text-to-voice options</p>
+</div>
+<img src="/api/placeholder/20/20" alt="Arrow Icon" class="arrow-icon">
+</li>
+<div class="hidden-panel" id="accessibility-panel">
+<div class="preference-item">
+<h4>Screen Reader Support</h4>
+<p>Optimize the interface for screen readers</p>
+<label class="toggle-switch">
+<input type="checkbox">
+<span class="slider"></span>
+</label>
+</div>
+<div class="preference-item">
+<h4>Reduce Motion</h4>
+<p>Minimize animations and movement across the site</p>
+<label class="toggle-switch">
+<input type="checkbox">
+<span class="slider"></span>
+</label>
+</div>
+<div class="preference-item">
+<h4>High Contrast Mode</h4>
+<p>Increase visibility with higher contrast colors</p>
+<label class="toggle-switch">
+<input type="checkbox">
+<span class="slider"></span>
+</label>
+</div>
+<button class="save-preferences">Save Preferences</button>
+<div class="success-message" id="accessibility-success">Accessibility settings updated successfully!</div>
+</div>
+
+<li id="display-toggle">
+<div>
+<h4>Display</h4>
+<p>Manage your font size, colour, and background</p>
+</div>
+<img src="/api/placeholder/20/20" alt="Arrow Icon" class="arrow-icon">
+</li>
+<div class="hidden-panel" id="display-panel">
+<div class="preference-item">
+<h4>Font Size</h4>
+<p>Choose your preferred font size</p>
+<select id="font-size">
+<option value="small">Small</option>
+<option value="medium" selected>Medium</option>
+<option value="large">Large</option>
+<option value="x-large">Extra Large</option>
+</select>
+</div>
+<div class="preference-item">
+<h4>Color Theme</h4>
+<p>Choose your preferred color theme</p>
+<select id="color-theme">
+<option value="default" selected>Default Pink</option>
+<option value="purple">Purple</option>
+<option value="blue">Blue</option>
+<option value="green">Green</option>
+</select>
+</div>
+<div class="preference-item">
+<h4>Dark Mode</h4>
+<p>Switch between light and dark modes</p>
+<label class="toggle-switch">
+<input type="checkbox">
+<span class="slider"></span>
+</label>
+</div>
+<button class="save-preferences">Save Preferences</button>
+<div class="success-message" id="display-success">Display settings updated successfully!</div>
+</div>
+
+<li id="languages-toggle">
+<div>
+<h4>Languages</h4>
+<p>Manage which language you see across Princess Care</p>
+</div>
+<img src="/api/placeholder/20/20" alt="Arrow Icon" class="arrow-icon">
+</li>
+<div class="hidden-panel" id="languages-panel">
+<div class="preference-item">
+<h4>Primary Language</h4>
+<p>Choose your preferred language for the site</p>
+<select id="language-selection">
+<option value="en" selected>English (US)</option>
+<option value="es">Español (Spanish)</option>
+<option value="fr">Français (French)</option>
+<option value="zh">中文 (Chinese)</option>
+<option value="hi">हिन्दी (Hindi)</option>
+<option value="ar">العربية (Arabic)</option>
+</select>
+</div>
+<button class="save-preferences">Save Preferences</button>
+<div class="success-message" id="language-success">Language settings updated successfully!</div>
+</div>
+</ul>
+</div>
+
+<div class="settings-section" id="password-security" style="display:none">
+<h2>Password & Security</h2>
+<ul class="security-options">
+<li id="password-toggle">
+<div>
+<h4>Change Password</h4>
+<p>Update your password for better security</p>
+</div>
+<img src="/api/placeholder/20/20" alt="Arrow Icon" class="arrow-icon">
+</li>
+<div class="hidden-panel" id="password-panel">
+<form id="password-form">
+<label for="current-password">Current Password</label>
+<input type="password" id="current-password" required>
+<label for="new-password">New Password</label>
+<input type="password" id="new-password" required>
+<label for="confirm-password">Confirm New Password</label>
+<input type="password" id="confirm-password" required>
+<button type="submit">Update Password</button>
+<div class="success-message" id="password-success">Password updated successfully!</div>
+</form>
+</div>
+
+<li id="twofactor-toggle">
+<div>
+<h4>Two-Factor Authentication</h4>
+<p>Add an extra layer of security to your account</p>
+</div>
+<img src="/api/placeholder/20/20" alt="Arrow Icon" class="arrow-icon">
+</li>
+<div class="hidden-panel" id="twofactor-panel">
+<div class="preference-item">
+<h4>Enable Two-Factor Authentication</h4>
+<p>Receive a verification code when logging in from a new device</p>
+<label class="toggle-switch">
+<input type="checkbox" id="two-factor-toggle">
+<span class="slider"></span>
+</label>
+</div>
+<div id="two-factor-setup" style="display: none;">
+<p>Select your preferred method:</p>
+<select id="two-factor-method">
+<option value="sms">SMS</option>
+<option value="email">Email</option>
+<option value="app">Authentication App</option>
+</select>
+<button class="save-preferences">Save Preferences</button>
+</div>
+<div class="success-message" id="twofactor-success">Two-factor authentication settings updated!</div>
+</div>
+
+<li id="devices-toggle">
+<div>
+<h4>Connected Devices</h4>
+<p>Manage devices that are logged into your account</p>
+</div>
+<img src="/api/placeholder/20/20" alt="Arrow Icon" class="arrow-icon">
+</li>
+<div class="hidden-panel" id="devices-panel">
+<div class="preference-item">
+<h4>Current Device</h4>
+<p>Chrome on Windows • Current Session</p>
+<button class="save-preferences">Sign Out</button>
+</div>
+<div class="preference-item">
+<h4>iPhone 13</h4>
+<p>Safari • Last active: Today at 9:30 AM</p>
+<button class="save-preferences">Sign Out</button>
+</div>
+<div class="preference-item">
+<h4>iPad Pro</h4>
+<p>Safari • Last active: Yesterday at 3:15 PM</p>
+<button class="save-preferences">Sign Out</button>
+</div>
+<button class="save-preferences">Sign Out of All Devices</button>
+<div class="success-message" id="devices-success">Device signed out successfully!</div>
+</div>
+</ul>
+</div>
+</main>
+
+<script>
+// Main navigation for settings sections
+document.querySelectorAll('.settings-menu li').forEach(item => {
+item.addEventListener('click', function() {
+// Remove active class from all items
+document.querySelectorAll('.settings-menu li').forEach(el => {
+el.classList.remove('active');
+});
+
+// Add active class to clicked item
+this.classList.add('active');
+
+// Hide all sections
+document.querySelectorAll('.settings-section').forEach(section => {
+section.style.display = 'none';
+});
+
+// Show the selected section
+const sectionId = this.getAttribute('data-section');
+document.getElementById(sectionId).style.display = 'block';
+});
+});
+
+// Toggle expandable panels
+const togglePanels = [
+'filters', 'preferences', 'accessibility', 'display', 'languages',
+'password', 'twofactor', 'devices'
+];
+
+togglePanels.forEach(id => {
+const toggleElement = document.getElementById(`${id}-toggle`);
+const panelElement = document.getElementById(`${id}-panel`);
+
+if (toggleElement && panelElement) {
+toggleElement.addEventListener('click', function() {
+if (panelElement.style.display === 'block') {
+panelElement.style.display = 'none';
+} else {
+panelElement.style.display = 'block';
+}
+});
+}
+});
+
+// Handle form submissions
+document.getElementById('account-form').addEventListener('submit', function(e) {
+e.preventDefault();
+// Simulate form submission
+const successMessage = document.getElementById('account-success');
+successMessage.style.display = 'block';
+setTimeout(() => {
+successMessage.style.display = 'none';
+}, 3000);
+});
+
+document.getElementById('password-form').addEventListener('submit', function(e) {
+e.preventDefault();
+const newPassword = document.getElementById('new-password').value;
+const confirmPassword = document.getElementById('confirm-password').value;
+
+if (newPassword !== confirmPassword) {
+alert('Passwords do not match!');
+return;
+}
+
+// Simulate form submission
+const successMessage = document.getElementById('password-success');
+successMessage.style.display = 'block';
+setTimeout(() => {
+successMessage.style.display = 'none';
+}, 3000);
+
+// Clear form
+this.reset();
+});
+
+// Handle photo update
+document.getElementById('update-photo-btn').addEventListener('click', function() {
+const fileInput = document.getElementById('upload-photo');
+if (fileInput.files.length > 0) {
+const successMessage = document.getElementById('photo-success');
+successMessage.style.display = 'block';
+setTimeout(() => {
+successMessage.style.display = 'none';
+}, 3000);
+} else {
+alert('Please select a photo first');
+}
+});
+
+// Handle save preferences buttons
+document.querySelectorAll('.save-preferences').forEach(button => {
+button.addEventListener('click', function() {
+// Find closest panel
+const panel = this.closest('.hidden-panel');
+if (panel) {
+const panelId = panel.id;
+const successId = panelId.replace('panel', 'success');
+const successMessage = document.getElementById(successId);
+
+if (successMessage) {
+successMessage.style.display = 'block';
+setTimeout(() => {
+successMessage.style.display = 'none';
+}, 3000);
+}
+}
+});
+});
+
+// Two-factor authentication toggle
+document.getElementById('two-factor-toggle').addEventListener('change', function() {
+const setupPanel = document.getElementById('two-factor-setup');
+if (this.checked) {
+setupPanel.style.display = 'block';
+} else {
+setupPanel.style.display = 'none';
+}
+});
+
+// Initialize the page with first tab active
+function init() {
+document.querySelectorAll('.settings-section').forEach(section => {
+section.style.display = 'none';
+});
+document.getElementById('account-settings').style.display = 'block';
+}
+
+// Run initialization
+init();
+</script>
+</body>
+</html>

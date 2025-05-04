@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - PrincessCare</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #f8a5c2;
+      --primary-light: #ffd3e1;
+      --accent: #d6336c;
+      --light-bg: #fff9fb;
+      --text: #333333;
+      --secondary-text: #7d6e70;
+      --success: #43a047;
+      --success-light: #a5d6a7;
+      --error: #e53935;
+      --error-light: #ffcdd2;
+      --highlight: #fff9c4;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --border-color: #e0e0e0;
+      --border-radius: 10px;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--light-bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Buttons */
+    button, .btn {
+      background-color: var(--accent);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1rem;
+      gap: 0.5rem;
+    }
+    
+    button:hover, .btn:hover {
+      background-color: #c42b61;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text);
+    }
+    
+    .btn-outline:hover {
+      background-color: rgba(214, 51, 108, 0.05);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    
+    /* Login container */
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+      background: linear-gradient(135deg, #ffeef2 0%, #fff5f8 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .login-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f8a5c2' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.4;
+      z-index: 0;
+    }
+    
+    .login-box {
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 450px;
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .login-box header {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    
+    /* Form inputs */
+    .input-field {
+      margin-bottom: 1.5rem;
+    }
+    
+    .input-field label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--secondary-text);
+      font-weight: 500;
+    }
+    
+    .input-field label i {
+      color: var(--accent);
+      margin-right: 0.5rem;
+    }
+    
+    .input-field input {
+      display: block;
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+      background-color: white;
+    }
+    
+    .input-field input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(214, 51, 108, 0.2);
+    }
+    
+    /* Social media buttons */
+    .social-media-login {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    /* Custom branding */
+    .princess-logo {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .princess-logo i {
+      font-size: 2.5rem;
+      color: var(--accent);
+      background-color: var(--primary-light);
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 8px rgba(214, 51, 108, 0.15);
+    }
+    
+    @media (max-width: 576px) {
+      .login-box {
+        padding: 2rem 1.5rem;
+      }
+      
+      .social-media-login {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <div class="princess-logo">
+        <i class="fas fa-crown"></i>
+      </div>
+      <header>PrincessCare</header>
+      
+      <h2>Welcome Back</h2>
+      <p style="text-align: center; margin-bottom: 2rem; color: var(--secondary-text);">Sign in to access your beauty dashboard</p>
+      
+      <form action="dashboard.html" id="loginForm">
+        <div class="input-field">
+          <label for="username"><i class="fas fa-user"></i> Email or Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter your email or username" required>
+        </div>
+        
+        <div class="input-field">
+          <label for="password"><i class="fas fa-lock"></i> Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+          <div style="text-align: right; margin-top: -0.8rem;">
+            <a href="reset.html" style="font-size: 0.8rem; color: var(--accent);">Forgot password?</a>
+          </div>
+        </div>
+        
+        <div style="margin: 1.5rem 0;">
+          <label style="display: flex; align-items: center; cursor: pointer;">
+            <input type="checkbox" style="width: auto; margin-right: 0.5rem;">
+            <span style="font-size: 0.9rem;">Remember me on this device</span>
+          </label>
+        </div>
+        
+        <button type="submit" class="btn" style="width: 100%;">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </button>
+        
+        <div style="text-align: center; margin: 2rem 0 1rem; position: relative;">
+          <span style="background: white; padding: 0 1rem; position: relative; z-index: 1; color: var(--secondary-text);">
+            Or continue with
+          </span>
+          <div style="height: 1px; background: #ddd; position: absolute; width: 100%; top: 50%; z-index: 0;"></div>
+        </div>
+        
+        <div class="social-media-login">
+          <a href="#" title="Continue with Google" class="btn btn-outline" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+            <i class="fab fa-google"></i> Google
+          </a>
+          <a href="#" title="Continue with Instagram" class="btn btn-outline" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+        </div>
+        
+        <p style="text-align: center; margin-top: 2rem; color: var(--secondary-text);">
+          Don't have an account? <a href="signup.html" style="color: var(--accent); font-weight: 600;">Sign up</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Form validation
+      const loginForm = document.getElementById('loginForm');
+      if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const username = document.getElementById('username').value.trim();
+          const password = document.getElementById('password').value.trim();
+          
+          if (username === '' || password === '') {
+            alert('Please enter both username and password');
+            return;
+          }
+          
+          console.log('Login attempt:', { username, password });
+          
+          
+          setTimeout(() => {
+            window.location.href = 'dashboard.html';
+          }, 1000);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
