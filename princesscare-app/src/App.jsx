@@ -7,6 +7,7 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import AIRecommendations from "./components/AiCycleCheck";
 import Donation from "./pages/Donation";
+import Products from "./pages/Products";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/aicyclecheck" element={<AIRecommendations />} />
           <Route path="/donation" element={<Donation />} />
+          <Route path="/products" element={<Products />} />
         </Routes>
       </BrowserRouter>
     </div>

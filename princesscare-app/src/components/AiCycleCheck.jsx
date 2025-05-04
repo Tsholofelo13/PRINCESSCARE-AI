@@ -24,13 +24,10 @@ const AiRecommendation = () => {
         lastPeriodDate: lastPeriod,
         cycleLength: Number(cycleLength),
         periodLength: Number(periodLength),
-        flow,
-        pain,
-        discomfort,
       },
     };
 
-    setPrediction("Loading...");
+    setPrediction("Thinking...");
 
     try {
       const response = await fetch(
