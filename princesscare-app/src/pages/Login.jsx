@@ -35,6 +35,7 @@ const Login = () => {
       }
 
       localStorage.setItem("token", data.token);
+      localStorage.setItem("userId", data.userId);
       navigate(`/dashboard`);
     } catch (error) {
       console.error("Error response:", error.message);

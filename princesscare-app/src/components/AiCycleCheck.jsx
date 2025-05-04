@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navigation from "./Navigation";
+import "../index.css";
 
 const AiRecommendation = () => {
   const [lastPeriod, setLastPeriod] = useState("");
@@ -56,14 +57,15 @@ const AiRecommendation = () => {
     <div
       style={{
         fontFamily: "Arial, sans-serif",
-        background: "#ffe0f0",
+
         textAlign: "center",
         padding: "20px",
       }}
     >
       {" "}
       <Navigation />
-      <h2>Let's Get to Know You</h2>
+      <h2>AI Track Cycle</h2>
+      <p> powered by Microsoft Azure OpenAI</p>
       <form id="cycleForm" onSubmit={handleSubmit}>
         <label htmlFor="lastPeriod">When did your last period start?</label>
         <input
@@ -147,7 +149,7 @@ const AiRecommendation = () => {
         <button type="submit">Get My Cycle & Tips</button>
       </form>
       <div id="results" style={{ marginTop: "20px" }}>
-        <h3>Your Cycle & Recommendations</h3>
+        <h3>Your AI Cycle & Recommendations</h3>
         <p id="prediction">{prediction}</p>
         <p id="recommendations">{recommendations}</p>
       </div>

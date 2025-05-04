@@ -1,118 +1,180 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Navigation from "../components/Navigation";
 import "../index.css";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
+  const [cartItems, setCartItems] = useState([]);
+  const [cartTotal, setCartTotal] = useState(0);
+
+  // Store items data
+  const storeItems = {
+    1: {
+      id: 1,
+      name: "Always Maxi Duo Sanitary Pads Super Plus x 18",
+      price: 53.95 + 53.95 * 0.4,
+      quantity: 0,
+      image: "/src/assets/images/always pad pack.jpeg",
+    },
+    2: {
+      id: 2,
+      name: "Lil-lets Tampons x32",
+      price: 54.99 + 54.99 * 0.4,
+      quantity: 0,
+      image: "/src/assets/images/lilets tampons.jpeg",
+    },
+    3: {
+      id: 3,
+      name: "Always Sensitive Sanitary Pads Ultra Super Plus",
+      price: 52.95 + 52.95 * 0.4,
+      quantity: 0,
+      image:
+        "/src/assets/images/Always Sensitive Santary Pads Ultra Super Plus.webp",
+    },
+    4: {
+      id: 4,
+      name: "PURA Health Alcohol Wipes Hand Sanitizer",
+      price: 32.5 + 32.5 * 0.4,
+      quantity: 0,
+      image: "/src/assets/images/Alcohol Wipes Hand Sanitizer.webp",
+    },
+    5: {
+      id: 5,
+      name: "Dettol Hand Sanitizer",
+      price: 86.45 + 86.45 * 0.4,
+      quantity: 0,
+      image: "/src/assets/images/Hand Sanitizer.webp",
+    },
+  };
+
+  // Add item to cart
+  const addToCart = (productId) => {
+    const product = storeItems[productId];
+    const existingItem = cartItems.find((item) => item.id === productId);
+
+    if (existingItem) {
+      existingItem.quantity += 1; // Increase quantity by 1
+    } else {
+      const cartItem = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: 1,
+      };
+      setCartItems([...cartItems, cartItem]);
+    }
+
+    updateCartTotal();
+  };
+
+  // Update the total cart price
+  const updateCartTotal = () => {
+    let total = 0;
+    cartItems.forEach((item) => {
+      total += item.price * item.quantity;
+    });
+    setCartTotal(total);
+  };
+
+  // Handle placing an order
+  const handlePlaceOrder = () => {
+    // Logic for placing the order
+    alert("Order placed successfully!");
+  };
+
+  // Handle tracking an order
+  const trackOrder = () => {
+    // Logic for tracking the order
+    alert("Tracking your order...");
+  };
+
+  // Render product cards
+  const renderProducts = () => {
+    return Object.values(storeItems).map((product) => (
+      <div key={product.id} className="product-card">
+        <img src={product.image} alt={product.name} />
+        <h3>{product.name}</h3>
+        <p>R{product.price.toFixed(2)}</p>
+        <button onClick={() => addToCart(product.id)}>Add to Cart</button>
+      </div>
+    ));
+  };
+
   return (
-    <div className="container">
-      <header>
-        <h1>Princess Care</h1>
-        <nav>
-          <ul>
-            <li>
-              <a href="/" className="active">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="/products">Products</a>
-            </li>
-            <li>
-              <a href="/about">About</a>
-            </li>
-            <li>
-              <a href="/contact">Contact</a>
-            </li>
-          </ul>
-          <div className="search-bar">
-            <input type="text" placeholder="Search for products..." />
+    <div>
+      <Navigation />
+
+      {/* Hero Section */}
+      <section id="hero" className="hero">
+        <div className="princess-hamper-information">
+          <h1>Princess Hamper</h1>
+          <p>
+            The Princess Hamper is a basket of sanitary health products. By
+            purchasing on our website you help fund a princess hamper for a girl
+            in need.
+          </p>
+        </div>
+        <img src="/src/assets/images/hamper graphic.png" alt="hamper graphic" />
+      </section>
+
+      {/* Product Gallery */}
+      <div className="gallery">{renderProducts()}</div>
+
+      {/* Cart Section */}
+      <div className="cart" id="cart">
+        <h2>Your Cart</h2>
+        <div id="cartItems">
+          {cartItems.map((item, index) => (
+            <div key={index}>
+              <span>
+                {item.name} x {item.quantity}
+              </span>
+            </div>
+          ))}
+        </div>
+        <p>
+          Total: R<span id="cartTotal">{cartTotal.toFixed(2)}</span>
+        </p>
+      </div>
+
+      {/* Order Form */}
+      <div className="order-form">
+        <h2>Your Details</h2>
+        <input type="text" id="name" placeholder="Full Name" />
+        <input type="email" id="email" placeholder="Email Address" />
+        <input type="text" id="address" placeholder="Delivery Address" />
+        <button id="place-order-button" onClick={handlePlaceOrder}>
+          Place Order
+        </button>
+      </div>
+
+      {/* Order Tracking */}
+      <div className="order-tracking">
+        <h2>Track Your Order</h2>
+        <input type="text" id="orderId" placeholder="Enter your Order ID" />
+        <button onClick={trackOrder}>Track Order</button>
+        <div id="trackingResult"></div>
+      </div>
+
+      {/* Info Section */}
+      <div className="info-section">
+        <h2>Menstrual Health Tips</h2>
+        <ul>
+          <li>Change your pad or tampon every 4-8 hours.</li>
+          <li>Maintain good hygiene practices during your period.</li>
+          <li>Stay hydrated and eat a balanced diet.</li>
+          <li>Exercise regularly to help with cramps and mood.</li>
+        </ul>
+      </div>
+
+      {/* Footer */}
+      <footer id="contact">
+        <div className="container">
+          <div className="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: support@princesscare.co.za</p>
+            <p>Phone: +011 456 7890</p>
           </div>
-        </nav>
-      </header>
-
-      <section className="hero">
-        <div>
-          <h1>Welcome to Princess Care</h1>
-          <p className="slogan">Empowering women with every purchase</p>
-          <div className="cta-buttons">
-            <a href="/shop" className="btn">
-              Shop Now
-            </a>
-            <a href="/learn-more" className="btn">
-              Learn More
-            </a>
-          </div>
-        </div>
-        <img src="/your-logo.png" alt="Princess Care Logo" className="logo" />
-      </section>
-
-      <section className="horizontal-sections">
-        <div className="section">
-          <h2>Our Mission</h2>
-          <p>
-            We provide high-quality sanitary products and contribute to women’s
-            health initiatives.
-          </p>
-        </div>
-        <div className="section">
-          <h2>Princess Hamper</h2>
-          <p>
-            Every purchase helps fund a hamper of essential sanitary products
-            for those in need.
-          </p>
-        </div>
-        <div className="section">
-          <h2>Get Involved</h2>
-          <p>
-            Join our community drives and make a difference in women's lives.
-          </p>
-        </div>
-      </section>
-
-      <section className="gallery">
-        <div className="product-card">
-          <img src="/product1.jpg" alt="Product 1" className="product-image" />
-          <h2>Product 1</h2>
-          <p>$10.00</p>
-          <button className="add-to-cart">Add to Cart</button>
-        </div>
-        <div className="product-card">
-          <img src="/product2.jpg" alt="Product 2" className="product-image" />
-          <h2>Product 2</h2>
-          <p>$15.00</p>
-          <button className="add-to-cart">Add to Cart</button>
-        </div>
-      </section>
-
-      <footer>
-        <div className="footer-section">
-          <h3>Contact Us</h3>
-          <p>Email: info@princesscare.com</p>
-          <p>Phone: +123 456 7890</p>
-        </div>
-        <div className="footer-section">
-          <h3>Follow Us</h3>
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Facebook
-          </a>{" "}
-          |{" "}
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Instagram
-          </a>
-        </div>
-        <div className="footer-section">
-          <h3>Subscribe</h3>
-          <form>
-            <input type="email" placeholder="Enter your email" />
-            <button type="submit">Subscribe</button>
-          </form>
         </div>
       </footer>
     </div>

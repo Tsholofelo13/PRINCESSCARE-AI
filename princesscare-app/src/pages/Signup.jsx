@@ -5,8 +5,8 @@ import { useNavigate, Link } from "react-router-dom";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -31,8 +31,8 @@ const Signup = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            first_name: formData.first_name,
-            last_name: formData.last_name,
+            firstName: formData.firstName,
+            lastName: formData.lastName,
             email: formData.email,
             password: formData.password,
           }),
@@ -41,12 +41,7 @@ const Signup = () => {
 
       const data = await response.json();
 
-      console.log({
-        first_name,
-        last_name,
-        email,
-        password,
-      });
+      console.log(formData);
       if (!response.ok) {
         throw new Error(data.error || "Signup failed");
       }
@@ -84,30 +79,30 @@ const Signup = () => {
 
         <form onSubmit={handleSignup}>
           <div className="input-field">
-            <label htmlFor="first_name">
+            <label htmlFor="firstName">
               <i className="fas fa-user"></i>First Name
             </label>
             <input
               type="text"
-              id="first_name"
-              name="first_name"
+              id="firstName"
+              name="firstName"
               placeholder="Enter your first name"
-              value={formData.first_name}
+              value={formData.firstName}
               onChange={handleChange}
               required
             />
           </div>
 
           <div className="input-field">
-            <label htmlFor="last_name">
+            <label htmlFor="lastName">
               <i className="fas fa-user"></i>Last Name
             </label>
             <input
               type="text"
-              id="last_name"
-              name="last_name"
+              id="lastName"
+              name="lastName"
               placeholder="Enter your last name"
-              value={formData.last_name}
+              value={formData.lastName}
               onChange={handleChange}
               required
             />

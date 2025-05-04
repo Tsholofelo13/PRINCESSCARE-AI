@@ -1,4 +1,9 @@
 import React from "react";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer.jsx";
+import "../index.css";
+import logo from "../assets/images/logo.png";
+import hamper from "../assets/images/hamper graphic.png";
 
 function Donation() {
   const handleSubmit = (event) => {
@@ -56,29 +61,7 @@ function Donation() {
 
   return (
     <div>
-      <header>
-        <div className="search-bar">
-          <input type="text" placeholder="Search..." />
-        </div>
-      </header>
-
-      <nav>
-        <ul>
-          <li>
-            <a href="products.html">Products</a>
-          </li>
-          <li>
-            <a href="menstrual-health.html">Learn</a>
-          </li>
-          <li>
-            <a href="track-period.html">Track My Period</a>
-          </li>
-          <li>
-            <a href="setting.html">Settings</a>
-          </li>
-        </ul>
-      </nav>
-
+      <Navigation />
       <section className="section" id="donate">
         <h3>Donate Sanitary Products</h3>
         <p>
@@ -149,28 +132,7 @@ function Donation() {
         </form>
       </section>
 
-      <footer id="contact">
-        <div className="container">
-          <div className="footer-section">
-            <h3>Contact Us</h3>
-            <p>Email: support@princesscare.co.za</p>
-            <p>Phone: +o11 456 7890</p>
-            <p>Address: 123 Wellness Street, Health City</p>
-          </div>
-          <div className="footer-section">
-            <h3>Follow Us</h3>
-            <a href="#">Facebook</a> | <a href="#">Twitter</a> |{" "}
-            <a href="#">Instagram</a>
-          </div>
-          <div className="footer-section">
-            <h3>Newsletter Signup</h3>
-            <form>
-              <input type="email" placeholder="Enter your email" />
-              <button type="submit">Subscribe</button>
-            </form>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
