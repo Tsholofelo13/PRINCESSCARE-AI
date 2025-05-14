@@ -4,7 +4,9 @@
 
 ## **About the Project**
 
-PrincessCare AI is a **social impact-driven platform** designed to help people better understand and manage their menstrual health. We’re using **Microsoft AI Services, Azure, and Copilot** to deliver **personalized cycle tracking, symptom management, and AI-powered product recommendations**—all with the goal of making menstrual health care smarter, more accessible, and stigma-free. View Project [here](princesscare-ai.netlify.app)
+PrincessCare AI is a **social impact-driven platform** designed to help people better understand and manage their menstrual health. We’re using **Microsoft AI Services, Azure, and Copilot** to deliver **personalized cycle tracking, symptom management, and AI-powered product recommendations**—all with the goal of making menstrual health care smarter, more accessible, and stigma-free. 
+
+**View Project [here](https://princesscare-ai.netlify.app/)**
 
 **Backend Repository**: [PrincessCare AI (Backend)](https://github.com/reaapunzell/PrincessCare-Backend)
 
